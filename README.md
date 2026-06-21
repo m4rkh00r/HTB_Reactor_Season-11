@@ -25,7 +25,7 @@ A complete walkthrough for the Reactor machine on Hack The Box, demonstrating re
 - [Legal Disclaimer](#-legal-disclaimer)
 - [Acknowledgments](#-acknowledgments)
 
-🔍 Reconnaissance
+## 🔍 Reconnaissance
 
 ```bash
 nmap -sC -sV 10.129.8.62
