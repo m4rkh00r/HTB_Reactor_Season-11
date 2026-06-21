@@ -30,3 +30,13 @@ A complete walkthrough for the Reactor machine on Hack The Box, demonstrating re
 ```bash
 nmap -sC -sV 10.129.8.62
 ```
+
+### 📡 Open Ports
+
+| Port | Service | Version |
+|------|----------|----------|
+| 22/tcp | SSH | OpenSSH 9.6p1 Ubuntu |
+| 3000/tcp | HTTP | Next.js 15.0.3 |
+
+The web application running on port 3000 is a Next.js dashboard used for monitoring a nuclear reactor.
+
